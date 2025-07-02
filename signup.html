@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account - FinPay</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3b82f6", secondary: "#60a5fa" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          background: linear-gradient(135deg, #1e293b, #0f172a);
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+      }
+      .card-gradient {
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gradient-text {
+          background: linear-gradient(90deg, #3b82f6, #60a5fa);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+      }
+      .gradient-btn {
+          background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      }
+      input:focus, input:active {
+          outline: none;
+          border-color: #3b82f6;
+      }
+      input[type="checkbox"] {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #3b82f6;
+          border-radius: 4px;
+          background-color: transparent;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+      }
+      input[type="checkbox"]:checked {
+          background-color: #3b82f6;
+      }
+      input[type="checkbox"]:checked::after {
+          content: "";
+          width: 6px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+          display: block;
+          margin-top: -2px;
+      }
+    </style>
+  </head>
+  <body class="text-white">
+    <header class="w-full py-6 px-8 flex justify-between items-center">
+      <div class="font-['Pacifico'] text-2xl text-white">logo</div>
+      <a
+        href="./1paymitra.html"
+        data-readdy="true"
+        class="text-primary hover:text-secondary transition-colors flex items-center gap-2"
+      >
+        <span class="w-5 h-5 flex items-center justify-center">
+          <i class="ri-arrow-left-line"></i>
+        </span>
+        <span>Back to Sign In</span>
+      </a>
+    </header>
+
+    <main class="flex-1 flex items-center justify-center px-4 py-10">
+      <div class="card-gradient rounded-lg w-full max-w-md p-8">
+        <h1 class="text-3xl font-bold mb-2 gradient-text text-center">
+          Create Account
+        </h1>
+        <p class="text-gray-300 text-center mb-8">
+          Join FinPay to manage your finances with ease
+        </p>
+
+        <form id="signupForm" class="space-y-6">
+          <div>
+            <label
+              for="fullName"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              >Full Name</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-user-line"></i>
+                </span>
+              </div>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="bg-gray-900 bg-opacity-50 border border-gray-700 text-white rounded w-full pl-10 pr-3 py-3 text-sm"
+                placeholder="Enter your full name"
+                required
+              />
+              <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              >Email Address</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-mail-line"></i>
+                </span>
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="bg-gray-900 bg-opacity-50 border border-gray-700 text-white rounded w-full pl-10 pr-3 py-3 text-sm"
+                placeholder="Enter your email address"
+                required
+              />
+              <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="phone"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              >Phone Number <span class="text-gray-500">(Optional)</span></label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-phone-line"></i>
+                </span>
+              </div>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="bg-gray-900 bg-opacity-50 border border-gray-700 text-white rounded w-full pl-10 pr-3 py-3 text-sm"
+                placeholder="Enter your phone number"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              >Password</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-lock-line"></i>
+                </span>
+              </div>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="bg-gray-900 bg-opacity-50 border border-gray-700 text-white rounded w-full pl-10 pr-10 py-3 text-sm"
+                placeholder="Create a strong password"
+                required
+              />
+              <button
+                type="button"
+                class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center"
+                data-target="password"
+              >
+                <span
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-eye-off-line"></i>
+                </span>
+              </button>
+              <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+            </div>
+            <div class="password-strength mt-2">
+              <div class="flex space-x-1">
+                <div class="h-1 flex-1 rounded-full bg-gray-700"></div>
+                <div class="h-1 flex-1 rounded-full bg-gray-700"></div>
+                <div class="h-1 flex-1 rounded-full bg-gray-700"></div>
+                <div class="h-1 flex-1 rounded-full bg-gray-700"></div>
+              </div>
+              <p class="text-xs text-gray-400 mt-1">
+                Use 8+ characters with a mix of letters, numbers & symbols
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="confirmPassword"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              >Confirm Password</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-lock-line"></i>
+                </span>
+              </div>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                class="bg-gray-900 bg-opacity-50 border border-gray-700 text-white rounded w-full pl-10 pr-10 py-3 text-sm"
+                placeholder="Confirm your password"
+                required
+              />
+              <button
+                type="button"
+                class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center"
+                data-target="confirmPassword"
+              >
+                <span
+                  class="w-5 h-5 flex items-center justify-center text-gray-400"
+                >
+                  <i class="ri-eye-off-line"></i>
+                </span>
+              </button>
+              <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input
+                  id="terms"
+                  name="terms"
+                  type="checkbox"
+                  required
+                  class="focus:ring-primary"
+                />
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="terms" class="text-gray-300"
+                  >I agree to the
+                  <a href="#" class="text-primary hover:text-secondary"
+                    >Terms of Service</a
+                  >
+                  and
+                  <a href="#" class="text-primary hover:text-secondary"
+                    >Privacy Policy</a
+                  ></label
+                >
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input
+                  id="marketing"
+                  name="marketing"
+                  type="checkbox"
+                  class="focus:ring-primary"
+                />
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="marketing" class="text-gray-300"
+                  >I want to receive updates about products, services, and
+                  promotional offers</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="gradient-btn w-full py-3 text-white font-medium rounded-button hover:opacity-90 transition-opacity flex items-center justify-center whitespace-nowrap"
+          >
+            <span>Create Account</span>
+          </button>
+        </form>
+
+        <div class="mt-6 text-center">
+          <p class="text-gray-300">
+            Already have an account?
+            <a
+              href="https://readdy.ai/home/5988b5c9-fc71-4978-b413-791afd6fa1a8/9e260957-199e-4335-a797-6fdcbe7a165e"
+              data-readdy="true"
+              class="text-primary hover:text-secondary"
+              >Sign In</a
+            >
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Password visibility toggle
+        const toggleButtons = document.querySelectorAll(".password-toggle");
+        toggleButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const targetId = this.getAttribute("data-target");
+            const passwordInput = document.getElementById(targetId);
+            const icon = this.querySelector("i");
+
+            if (passwordInput.type === "password") {
+              passwordInput.type = "text";
+              icon.classList.remove("ri-eye-off-line");
+              icon.classList.add("ri-eye-line");
+            } else {
+              passwordInput.type = "password";
+              icon.classList.remove("ri-eye-line");
+              icon.classList.add("ri-eye-off-line");
+            }
+          });
+        });
+
+        // Password strength indicator
+        const passwordInput = document.getElementById("password");
+        const strengthBars = document.querySelectorAll(".password-strength .flex-1");
+
+        passwordInput.addEventListener("input", function () {
+          const password = this.value;
+          let strength = 0;
+
+          if (password.length >= 8) strength++;
+          if (/[A-Z]/.test(password)) strength++;
+          if (/[0-9]/.test(password)) strength++;
+          if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+          strengthBars.forEach((bar, index) => {
+            if (index < strength) {
+              if (strength === 1) bar.classList.add("bg-red-500");
+              else if (strength === 2) bar.classList.add("bg-orange-500");
+              else if (strength === 3) bar.classList.add("bg-yellow-500");
+              else bar.classList.add("bg-green-500");
+
+              bar.classList.remove("bg-gray-700");
+            } else {
+              bar.className = "h-1 flex-1 rounded-full bg-gray-700";
+            }
+          });
+        });
+
+        // Form validation
+        const form = document.getElementById("signupForm");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          let isValid = true;
+
+          // Validate full name
+          const fullName = document.getElementById("fullName");
+          if (fullName.value.trim() === "") {
+            showError(fullName, "Full name is required");
+            isValid = false;
+          } else {
+            hideError(fullName);
+          }
+
+          // Validate email
+          const email = document.getElementById("email");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email.value)) {
+            showError(email, "Please enter a valid email address");
+            isValid = false;
+          } else {
+            hideError(email);
+          }
+
+          // Validate password
+          const password = document.getElementById("password");
+          if (password.value.length < 8) {
+            showError(password, "Password must be at least 8 characters long");
+            isValid = false;
+          } else {
+            hideError(password);
+          }
+
+          // Validate confirm password
+          const confirmPassword = document.getElementById("confirmPassword");
+          if (confirmPassword.value !== password.value) {
+            showError(confirmPassword, "Passwords do not match");
+            isValid = false;
+          } else {
+            hideError(confirmPassword);
+          }
+
+          // Validate terms acceptance
+          const terms = document.getElementById("terms");
+          if (!terms.checked) {
+            const termsError =
+              terms.parentElement.parentElement.querySelector(".error-message");
+            if (!termsError) {
+              const errorDiv = document.createElement("div");
+              errorDiv.className = "error-message text-red-500 text-xs mt-1";
+              errorDiv.textContent = "You must accept the terms to continue";
+              terms.parentElement.parentElement.appendChild(errorDiv);
+            }
+            isValid = false;
+          } else {
+            const termsError =
+              terms.parentElement.parentElement.querySelector(".error-message");
+            if (termsError) termsError.remove();
+          }
+
+          if (isValid) {
+            // Simulate form submission
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+
+            submitButton.innerHTML =
+              '<span class="w-5 h-5 flex items-center justify-center"><i class="ri-loader-4-line animate-spin"></i></span> Creating Account...';
+            submitButton.disabled = true;
+
+            setTimeout(() => {
+              // Redirect to sign-in page after successful registration
+              window.location.href =
+                "https://readdy.ai/home/5988b5c9-fc71-4978-b413-791afd6fa1a8/9e260957-199e-4335-a797-6fdcbe7a165e";
+            }, 2000);
+          }
+        });
+
+        function showError(input, message) {
+          const errorElement = input.parentElement.nextElementSibling;
+          if (errorElement && errorElement.classList.contains("error-message")) {
+            errorElement.textContent = message;
+            errorElement.classList.remove("hidden");
+          } else {
+            const errorDiv = input.parentElement.querySelector(".error-message");
+            errorDiv.textContent = message;
+            errorDiv.classList.remove("hidden");
+          }
+          input.classList.add("border-red-500");
+        }
+
+        function hideError(input) {
+          const errorElement = input.parentElement.nextElementSibling;
+          if (errorElement && errorElement.classList.contains("error-message")) {
+            errorElement.classList.add("hidden");
+          } else {
+            const errorDiv = input.parentElement.querySelector(".error-message");
+            errorDiv.classList.add("hidden");
+          }
+          input.classList.remove("border-red-500");
+        }
+      });
+    </script>
+  </body>
+</html>
